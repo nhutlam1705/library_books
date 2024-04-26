@@ -3,6 +3,8 @@ const router = express.Router();
 const { Sach } = require('../models/models');
 const ApiError = require('../api-error');
 
+
+// show all book
 router.get('/', async (req, res, next) => {
     try {
         const sachList = await Sach.find();
@@ -12,6 +14,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+// lay sach theo ID
 router.get('/:id', async (req, res, next) => {
     try {
         const sach = await Sach.findById(req.params.id);
@@ -23,7 +26,7 @@ router.get('/:id', async (req, res, next) => {
         next(err);
     }
 });
-
+// upload sach vao CSDL
 router.post('/', async (req, res, next) => {
     try {
         const newSach = new Sach(req.body);
@@ -33,7 +36,7 @@ router.post('/', async (req, res, next) => {
         next(err);
     }
 });
-
+//sua mot phan cua sach
 router.put('/:id', async (req, res, next) => {
     try {
         const updatedSach = await Sach.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -45,6 +48,8 @@ router.put('/:id', async (req, res, next) => {
         next(err);
     }
 });
+
+//xoa sach theo ID
 
 router.delete('/:id', async (req, res, next) => {
     try {

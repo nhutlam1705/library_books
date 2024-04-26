@@ -27,6 +27,7 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+// them thoong tin NXB vaof CSDL
 router.post('/', async (req, res, next) => {
     try {
         const newNhaXuatBan = new NhaXuatBan(req.body);
@@ -37,6 +38,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+// Cap nhat TT theo ID
 router.put('/:id', async (req, res, next) => {
     try {
         const updatedNhaXuatBan = await NhaXuatBan.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -49,6 +51,7 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
+// xoa theo ID
 router.delete('/:id', async (req, res, next) => {
     try {
         const deletedNhaXuatBan = await NhaXuatBan.findByIdAndDelete(req.params.id);

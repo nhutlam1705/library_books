@@ -4,6 +4,7 @@ const { TheoDoiMuonSach } = require('../models/models');
 const moment = require('moment');
 const ApiError = require('../api-error');
 
+// lay thong tin muon sach
 router.get('/', async (req, res, next) => {
     try {
         const theoDoiList = await TheoDoiMuonSach.find();
@@ -18,6 +19,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+// lay ID doc gia
 router.get('/docgia/:docGiaId', async (req, res, next) => {
     try {
         const theoDoiList = await TheoDoiMuonSach.find({MaDocGia: req.params.docGiaId});
@@ -32,6 +34,7 @@ router.get('/docgia/:docGiaId', async (req, res, next) => {
     }
 })
 
+// lay ID theo doi muon sach
 router.get('/:id', async (req, res, next) => {
     try {
         const theoDoi = await TheoDoiMuonSach.findById(req.params.id);
@@ -47,6 +50,7 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+//tra ve danh sach 
 router.post('/', async (req, res, next) => {
     try {
         const newTheoDoi = new TheoDoiMuonSach(req.body);
@@ -60,6 +64,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+// cap nhat theo Id muon sach
 router.put('/:id', async (req, res, next) => {
     try {
         const updatedTheoDoi = await TheoDoiMuonSach.findByIdAndUpdate(req.params.id, req.body, { new: true });
