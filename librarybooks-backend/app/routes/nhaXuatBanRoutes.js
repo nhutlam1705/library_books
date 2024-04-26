@@ -3,6 +3,8 @@ const router = express.Router();
 const { NhaXuatBan } = require('../models/models');
 const ApiError = require('../api-error');
 
+
+// toan bo danh sach NXB
 router.get('/', async (req, res, next) => {
     try {
         const nhaXuatBanList = await NhaXuatBan.find();
@@ -12,6 +14,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+// lay NXB theo ID
 router.get('/:id', async (req, res, next) => {
     try {
         const nhaXuatBan = await NhaXuatBan.findById(req.params.id);

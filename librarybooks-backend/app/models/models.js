@@ -38,7 +38,6 @@ const nhanVien = new mongoose.Schema({
     DiaChi: String,
     SoDienThoai: String
 });
-
 const DocGia = mongoose.model('DocGia', docGia);
 const Sach = mongoose.model('Sach', sach);
 const NhaXuatBan = mongoose.model('NhaXuatBan', nhaXuatBan);

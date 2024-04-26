@@ -17,6 +17,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+// lay doc gia theo ID
 router.get('/:id', async (req, res, next) => {
     try {
         const docGia = await DocGia.findById(req.params.id);
@@ -31,6 +32,7 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+//  Loc  lay doc gia theo SDT
 router.get("/sdt/:sdt", async (req, res, next) => {
     try {
         const docGia = await DocGia.findOne({DienThoai : req.params.sdt});
@@ -45,6 +47,7 @@ router.get("/sdt/:sdt", async (req, res, next) => {
     }
 });
 
+// them doc gia moi
 router.post('/', async (req, res, next) => {
     try {
         const newDocGia = new DocGia(req.body);
@@ -57,6 +60,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+// cap nhat doc gia
 router.put('/:id', async (req, res, next) => {
     try {
         const updatedDocGia = await DocGia.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -72,6 +76,7 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
+// xoa doc gia
 router.delete('/:id', async (req, res, next) => {
     try {
         const deletedDocGia = await DocGia.findByIdAndDelete(req.params.id);
