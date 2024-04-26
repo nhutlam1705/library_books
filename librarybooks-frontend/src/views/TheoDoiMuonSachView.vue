@@ -79,7 +79,6 @@
       }
     } 
   }
-  
   export default {
     data() {
       return {
@@ -112,9 +111,7 @@
           this.filterCriterial.NgayMuon_from == '' &&
           this.filterCriterial.NgayMuon_to == '' &&
           this.filterCriterial.ThongKe == '');
-
         let returnList = this.TDMSList;
-
         if (this.isFiltered){
           returnList = this.TDMSList.filter(tdms => {
             const matchTenSach = tdms.TenSach.toLowerCase().includes(this.filterCriterial.TenSach);
@@ -124,7 +121,6 @@
             return matchTenSach && matchTenDocGia && matchStatus && matchDate;
           })
         };
-
         if (this.sortByTen && this.sortUp) {
           returnList.sort((a, b) => {
             return a.TenSach.localeCompare(b.TenSach);
@@ -162,7 +158,6 @@
             return b.Status.localeCompare(a.Status);
           });
         }
-
         return returnList;
       }
     },
@@ -254,7 +249,6 @@
           this.sortUp = !this.sortUp;
         }
       },
-
       changeSortByDocGia() {
         if (this.sortByDocGia === false) {
           this.sortByNgayMuon = false;
@@ -267,7 +261,6 @@
           this.sortUp = !this.sortUp;
         }
       },
-
       changeSortByNgayMuon() {
         if (this.sortByNgayMuon === false) {
           this.sortByNgayMuon = true;
@@ -280,7 +273,6 @@
           this.sortUp = !this.sortUp;
         }
       },
-
       changeSortByDaTra() {
         if (this.sortByDaTra === false) {
           this.sortByNgayMuon = false;
@@ -293,7 +285,6 @@
           this.sortUp = !this.sortUp;
         }
       },
-
       changeSortByStatus() {
         if (this.sortByStatus === false) {
           this.sortByNgayMuon = false;
@@ -306,7 +297,6 @@
           this.sortUp = !this.sortUp;
         }
       },
-
     }
   };
 </script>

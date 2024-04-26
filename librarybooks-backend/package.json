@@ -1,7 +1,6 @@
 {
   "name": "librarybooks-backend",
   "version": "1.0.0",
-  "description": "Web quản lý mượn sách ở thư viện với MEVN stack",
   "main": "server.js",
   "scripts": {
     "test": "mocha testserver.js",

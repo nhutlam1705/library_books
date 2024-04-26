@@ -102,12 +102,10 @@
       </table>
     </div>
 </template>
-  
 <script>
   import SachService from "@/services/sach.service";
   import NXBService from "@/services/nhaXuatBan.service";
   import theoDoiMuonSachService from "@/services/theoDoiMuonSach.service";
-
   export default {
     data() {
       return {
@@ -164,7 +162,6 @@
           this.filterCriteria.TenNXB === '' &&
           this.filterCriteria.SoQuyen === 0 &&
           this.filterCriteria.DonGia === 0);
-
         let returnList = this.SachList;
         if (this.isFiltered) {
           returnList = this.SachList.filter(sach => {
@@ -235,7 +232,6 @@
             return b.NguonGoc.localeCompare(a.NguonGoc);
           });
         }
-
         return returnList;
       },
       nxbFilteredList(){
@@ -295,9 +291,9 @@
       unFilter(){
         this.filterCriteria={
           TenSach:"",
-          DonGia:-1,
-          SoQuyen:-1,
-          NamXuatBan:-1,
+          DonGia:0,
+          SoQuyen:0,
+          NamXuatBan:2000,
           TenNXB:"",
           NguonGoc:"",
           DonGiaQuery:"=",
@@ -346,8 +342,7 @@
             await this.fetchSachList();
             this.filterCriteria=tempFilter;
             this.selectedItems=[];
-            } else {
-                      
+            } else {  
             }
           } catch (error) {
             console.error("Lỗi khi xóa nhiều mục:", error);
@@ -369,9 +364,9 @@
       async resetForm() {
         this.newSach = {
           TenSach: "",
-          DonGia: -1,
-          SoQuyen: -1,
-          NamXuatBan: -1,
+          DonGia: 0,
+          SoQuyen: 0,
+          NamXuatBan: 2000,
           MaNXB: "",
           NguonGoc: ""
         };
